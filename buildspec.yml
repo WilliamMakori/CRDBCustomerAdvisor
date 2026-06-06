@@ -1,0 +1,62 @@
+version: 0.2
+
+phases:
+  install:
+    runtime-versions:
+      java: corretto17
+      nodejs: 18
+    commands:
+      - echo "Installing dependencies..."
+      - java -version
+      - mvn -version
+      - node -v
+
+  pre_build:
+    commands:
+      - echo "Running tests..."
+      - cd backend
+      - mvn test
+      - cd ..
+      - cd frontend
+      - npm install
+      - cd ..
+
+  build:
+    commands:
+      - echo "Building backend..."
+      - cd backend
+      - mvn package -DskipTests
+      - cd ..
+      - echo "Building frontend..."
+      - cd frontend
+      - npm run build
+      - cd ..
+
+  post_build:
+    commands:
+      - echo "Deploying Lambda functions..."
+      - aws lambda update-function-code
+          --function-name CRDB-GetRecommendationsHandler
+          --zip-file fileb://backend/target/crdb-customer-advisor-1.0.0.jar
+      - aws lambda update-function-code
+          --function-name CRDB-UpdateProfileHandler
+          --zip-file fileb://backend/target/crdb-customer-advisor-1.0.0.jar
+      - aws lambda update-function-code
+          --function-name CRDB-GetProfileHandler
+          --zip-file fileb://backend/target/crdb-customer-advisor-1.0.0.jar
+      - echo "Deploying frontend to S3..."
+      - aws s3 sync frontend/dist s3://crdb-customer-advisor-frontend
+          --delete
+      - echo "Deployment complete"
+
+artifacts:
+  files:
+    - backend/target/crdb-customer-advisor-1.0.0.jar
+    - frontend/dist/**/*
+  discard-paths: no
+
+reports:
+  backend-tests:
+    files:
+      - backend/target/surefire-reports/**/*
+    file-format: JUNITXML

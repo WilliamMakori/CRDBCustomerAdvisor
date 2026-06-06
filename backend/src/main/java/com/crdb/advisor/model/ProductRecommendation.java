@@ -58,7 +58,7 @@ public class ProductRecommendation {
     // name of recommendation
     // category of the recommendation ie capital market investment, short term investment long term etc
     // action to take 
-    public class RecommendedProduct{
+    public static class RecommendedProduct{
 
         private String productName; 
         private String category; 

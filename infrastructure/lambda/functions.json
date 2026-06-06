@@ -1,0 +1,62 @@
+{
+    "Functions": [
+        {
+            "FunctionName": "CRDB-GetRecommendationsHandler",
+            "Description": "Fetches AI-generated CRDB product recommendations for a customer",
+            "Runtime": "java17",
+            "Handler": "com.crdb.advisor.handler.GetRecommendationsHandler::handleRequest",
+            "MemorySize": 512,
+            "Timeout": 30,
+            "Environment": {
+                "Variables": {
+                    "DYNAMODB_REGION": "us-east-1",
+                    "BEDROCK_REGION": "us-east-1",
+                    "LOG_LEVEL": "INFO"
+                }
+            },
+            "Tags": {
+                "Project": "CRDBCustomerAdvisor",
+                "Environment": "production",
+                "Bank": "CRDB"
+            }
+        },
+        {
+            "FunctionName": "CRDB-UpdateProfileHandler",
+            "Description": "Updates a customer's financial profile",
+            "Runtime": "java17",
+            "Handler": "com.crdb.advisor.handler.UpdateProfileHandler::handleRequest",
+            "MemorySize": 256,
+            "Timeout": 15,
+            "Environment": {
+                "Variables": {
+                    "DYNAMODB_REGION": "us-east-1",
+                    "LOG_LEVEL": "INFO"
+                }
+            },
+            "Tags": {
+                "Project": "CRDBCustomerAdvisor",
+                "Environment": "production",
+                "Bank": "CRDB"
+            }
+        },
+        {
+            "FunctionName": "CRDB-GetProfileHandler",
+            "Description": "Fetches a customer's financial profile",
+            "Runtime": "java17",
+            "Handler": "com.crdb.advisor.handler.GetProfileHandler::handleRequest",
+            "MemorySize": 256,
+            "Timeout": 15,
+            "Environment": {
+                "Variables": {
+                    "DYNAMODB_REGION": "us-east-1",
+                    "LOG_LEVEL": "INFO"
+                }
+            },
+            "Tags": {
+                "Project": "CRDBCustomerAdvisor",
+                "Environment": "production",
+                "Bank": "CRDB"
+            }
+        }
+    ]
+}

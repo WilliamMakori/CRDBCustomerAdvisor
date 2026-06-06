@@ -1,0 +1,55 @@
+{
+    "ApiName": "crdb-customer-advisor-api",
+    "Description": "API Gateway for CRDB Customer Advisor",
+    "ProtocolType": "HTTP",
+    "CorsConfiguration": {
+        "AllowOrigins": ["*"],
+        "AllowMethods": ["GET", "POST", "PUT", "OPTIONS"],
+        "AllowHeaders": ["Content-Type", "Authorization"],
+        "MaxAge": 300
+    },
+    "Routes": [
+        {
+            "RouteKey": "GET /recommendations/{customerId}",
+            "Description": "Get AI product recommendations for a customer",
+            "Target": "CRDB-GetRecommendationsHandler",
+            "AuthorizationType": "NONE"
+        },
+        {
+            "RouteKey": "GET /customers/{customerId}/profile",
+            "Description": "Get a customer's financial profile",
+            "Target": "CRDB-GetProfileHandler",
+            "AuthorizationType": "NONE"
+        },
+        {
+            "RouteKey": "POST /customers/{customerId}/profile",
+            "Description": "Update a customer's financial profile",
+            "Target": "CRDB-UpdateProfileHandler",
+            "AuthorizationType": "NONE"
+        },
+        {
+            "RouteKey": "PUT /customers/{customerId}/profile",
+            "Description": "Create a new customer profile",
+            "Target": "CRDB-UpdateProfileHandler",
+            "AuthorizationType": "NONE"
+        }
+    ],
+    "Stages": [
+        {
+            "StageName": "prod",
+            "AutoDeploy": true,
+            "DefaultRouteSettings": {
+                "ThrottlingBurstLimit": 100,
+                "ThrottlingRateLimit": 50
+            }
+        },
+        {
+            "StageName": "dev",
+            "AutoDeploy": true,
+            "DefaultRouteSettings": {
+                "ThrottlingBurstLimit": 10,
+                "ThrottlingRateLimit": 5
+            }
+        }
+    ]
+}

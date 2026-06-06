@@ -1,0 +1,78 @@
+{
+    "Tables": [
+        {
+            "TableName": "customer-profiles",
+            "BillingMode": "PAY_PER_REQUEST",
+            "AttributeDefinitions": [
+                {
+                    "AttributeName": "customerId",
+                    "AttributeType": "S"
+                },
+                {
+                    "AttributeName": "riskAppetite",
+                    "AttributeType": "S"
+                },
+                {
+                    "AttributeName": "updatedAt",
+                    "AttributeType": "S"
+                }
+            ],
+            "KeySchema": [
+                {
+                    "AttributeName": "customerId",
+                    "KeyType": "HASH"
+                }
+            ],
+            "GlobalSecondaryIndexes": [
+                {
+                    "IndexName": "riskAppetite-updatedAt-index",
+                    "KeySchema": [
+                        {
+                            "AttributeName": "riskAppetite",
+                            "KeyType": "HASH"
+                        },
+                        {
+                            "AttributeName": "updatedAt",
+                            "KeyType": "RANGE"
+                        }
+                    ],
+                    "Projection": {
+                        "ProjectionType": "ALL"
+                    }
+                }
+            ],
+            "TimeToLiveSpecification": {
+                "AttributeName": "expiresAt",
+                "Enabled": true
+            }
+        },
+        {
+            "TableName": "recommendations",
+            "BillingMode": "PAY_PER_REQUEST",
+            "AttributeDefinitions": [
+                {
+                    "AttributeName": "customerId",
+                    "AttributeType": "S"
+                },
+                {
+                    "AttributeName": "generatedAt",
+                    "AttributeType": "S"
+                }
+            ],
+            "KeySchema": [
+                {
+                    "AttributeName": "customerId",
+                    "KeyType": "HASH"
+                },
+                {
+                    "AttributeName": "generatedAt",
+                    "KeyType": "RANGE"
+                }
+            ],
+            "TimeToLiveSpecification": {
+                "AttributeName": "expiresAt",
+                "Enabled": true
+            }
+        }
+    ]
+}

@@ -1,0 +1,9 @@
+/Users/makorichacha/CRDB Customer Advisor/CRDBCustomerAdvisor/backend/src/main/java/com/crdb/advisor/handler/GetProfileHandler.java
+/Users/makorichacha/CRDB Customer Advisor/CRDBCustomerAdvisor/backend/src/main/java/com/crdb/advisor/handler/GetRecommendationsHandler.java
+/Users/makorichacha/CRDB Customer Advisor/CRDBCustomerAdvisor/backend/src/main/java/com/crdb/advisor/handler/UpdateProfileHandler.java
+/Users/makorichacha/CRDB Customer Advisor/CRDBCustomerAdvisor/backend/src/main/java/com/crdb/advisor/model/CustomerProfile.java
+/Users/makorichacha/CRDB Customer Advisor/CRDBCustomerAdvisor/backend/src/main/java/com/crdb/advisor/model/ProductRecommendation.java
+/Users/makorichacha/CRDB Customer Advisor/CRDBCustomerAdvisor/backend/src/main/java/com/crdb/advisor/repository/CustomerProfileRepository.java
+/Users/makorichacha/CRDB Customer Advisor/CRDBCustomerAdvisor/backend/src/main/java/com/crdb/advisor/repository/RecommendationRepository.java
+/Users/makorichacha/CRDB Customer Advisor/CRDBCustomerAdvisor/backend/src/main/java/com/crdb/advisor/service/BedrockService.java
+/Users/makorichacha/CRDB Customer Advisor/CRDBCustomerAdvisor/backend/src/main/java/com/crdb/advisor/service/RecommendationService.java
