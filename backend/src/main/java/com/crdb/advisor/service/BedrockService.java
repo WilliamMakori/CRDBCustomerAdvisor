@@ -18,6 +18,7 @@ public class BedrockService {
 
     private final BedrockRuntimeClient bedrockClient;
     private final ObjectMapper objectMapper;
+    // name of the bedrock model for text generation
     private static final String MODEL_ID = "amazon.titan-text-express-v1";
 
     public BedrockService(BedrockRuntimeClient bedrockClient) {
