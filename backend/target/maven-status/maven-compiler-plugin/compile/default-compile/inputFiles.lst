@@ -1,3 +1,5 @@
+/Users/makori/Desktop/CRDBCustomerAdvisor/backend/src/main/java/com/crdb/advisor/LocalContext.java
+/Users/makori/Desktop/CRDBCustomerAdvisor/backend/src/main/java/com/crdb/advisor/LocalServer.java
 /Users/makori/Desktop/CRDBCustomerAdvisor/backend/src/main/java/com/crdb/advisor/handler/GetProfileHandler.java
 /Users/makori/Desktop/CRDBCustomerAdvisor/backend/src/main/java/com/crdb/advisor/handler/GetRecommendationsHandler.java
 /Users/makori/Desktop/CRDBCustomerAdvisor/backend/src/main/java/com/crdb/advisor/handler/UpdateProfileHandler.java
@@ -6,4 +8,5 @@
 /Users/makori/Desktop/CRDBCustomerAdvisor/backend/src/main/java/com/crdb/advisor/repository/CustomerProfileRepository.java
 /Users/makori/Desktop/CRDBCustomerAdvisor/backend/src/main/java/com/crdb/advisor/repository/RecommendationRepository.java
 /Users/makori/Desktop/CRDBCustomerAdvisor/backend/src/main/java/com/crdb/advisor/service/BedrockService.java
+/Users/makori/Desktop/CRDBCustomerAdvisor/backend/src/main/java/com/crdb/advisor/service/GeminiService.java
 /Users/makori/Desktop/CRDBCustomerAdvisor/backend/src/main/java/com/crdb/advisor/service/RecommendationService.java

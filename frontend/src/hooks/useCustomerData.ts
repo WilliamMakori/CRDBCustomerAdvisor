@@ -52,12 +52,12 @@ export function useCustomerData(customerId: string): UseCustomerDataResult {
         }
     }, [customerId]);
 
-    useEffect(() => {
-        const interval = setInterval(() => {
-            if (customerId) fetchRecommendations();
-        }, 30000);
-        return () => clearInterval(interval);
-    }, [customerId]);
+    // useEffect(() => {
+    //     const interval = setInterval(() => {
+    //         if (customerId) fetchRecommendations();
+    //     }, 30000);
+    //     return () => clearInterval(interval);
+    // }, [customerId]);
 
     return {
         recommendations,
