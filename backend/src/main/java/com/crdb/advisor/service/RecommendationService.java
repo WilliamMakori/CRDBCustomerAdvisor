@@ -75,6 +75,11 @@ public class RecommendationService {
 
         existing.setUpdatedAt(java.time.Instant.now().toString());
         customerProfileRepository.save(existing);
+        
+
+// Delete cached recommendations so fresh ones are generated
+// next time the customer requests them
+recommendationRepository.deleteByCustomerId(customerId);
     }
 
     public CustomerProfile createCustomer(

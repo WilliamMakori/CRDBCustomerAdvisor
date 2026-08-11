@@ -12,6 +12,10 @@ import java.util.List;
 // there will be a class inside this class that represents what a recommendation is comprised of 
 
 public class ProductRecommendation {
+    // this is the class that represents a product recommendation
+    // each recommendation is specific to a customer and was generated at a specific time and expires after a certain period
+    // we also want to keep track of the model used to generate the recommendation and the products recommended
+    // there will be five products recommended for each customer
 
     private String customerId; 
     private String generatedAt;
@@ -20,6 +24,7 @@ public class ProductRecommendation {
     private List<RecommendedProduct> products; 
 
     // getters and setters 
+    // getting and setting the data variables from the class
     public String getCustomerId() { return customerId; }
     public void setCustomerId(String customerId) { this.customerId = customerId; }
 
@@ -40,6 +45,7 @@ public class ProductRecommendation {
 
 
     // Factory method, accessibility, return type and function name
+
     public static ProductRecommendation createNew(String customerId,
         List<RecommendedProduct> products) {
 
@@ -58,6 +64,7 @@ public class ProductRecommendation {
     // name of recommendation
     // category of the recommendation ie capital market investment, short term investment long term etc
     // action to take 
+    // this class is static and defined inside the ProductRecommendation class because 
     public static class RecommendedProduct{
 
         private String productName; 

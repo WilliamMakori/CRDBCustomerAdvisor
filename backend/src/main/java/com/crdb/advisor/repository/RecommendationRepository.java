@@ -132,4 +132,26 @@ public class RecommendationRepository {
         java.time.Instant expiry = java.time.Instant.parse(latest.getExpiresAt());
         return expiry.isAfter(java.time.Instant.now());
     }
+
+    // Delete all recommendations for a customer
+public void deleteByCustomerId(String customerId) {
+    // Find the latest recommendation
+    ProductRecommendation latest = findLatestByCustomerId(customerId);
+    if (latest == null) {
+        return;
+    }
+
+    Map<String, AttributeValue> key = new HashMap<>();
+    key.put("customerId", AttributeValue.builder()
+        .s(customerId).build());
+    key.put("generatedAt", AttributeValue.builder()
+        .s(latest.getGeneratedAt()).build());
+
+    DeleteItemRequest request = DeleteItemRequest.builder()
+        .tableName(TABLE_NAME)
+        .key(key)
+        .build();
+
+    dynamoDbClient.deleteItem(request);
+}
 }

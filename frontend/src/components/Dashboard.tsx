@@ -86,7 +86,7 @@ export function Dashboard() {
                             color: '#a5d6a7',
                             fontSize: '12px'
                         }}>
-                            Powered by Amazon Bedrock
+                            Powered by Google Gemini AI
                         </p>
                     </div>
                 </div>
